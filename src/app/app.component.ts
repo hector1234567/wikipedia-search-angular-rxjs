@@ -1,4 +1,12 @@
 import { Component } from '@angular/core';
+import { WikipediaService } from './wikipedia.service';
+
+interface WikipediaResult {
+  title: string;
+  wordcount: number;
+  snippet: string;
+  pageid: number;
+}
 
 @Component({
   selector: 'app-root',
@@ -6,5 +14,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'wikipedia';
+  results: WikipediaResult[] = [];
+
+  constructor(private wikipediaService: WikipediaService) {}
+
+  onSubmitted(term: string) {
+    this.wikipediaService.search(term)
+    .subscribe((result)=> {
+      this.results = result;
+    })
+  }
 }

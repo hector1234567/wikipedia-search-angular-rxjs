@@ -1,0 +1,6 @@
+<form (submit)="onSubmit($event)">
+    <div class="mb-3">
+      <label for="term" class="form-label">Search on Wikipedia</label>
+      <input type="text" class="form-control" id="term" aria-describedby="term" #searchTerm (input)="onInput(searchTerm.value)">
+    </div>
+</form>

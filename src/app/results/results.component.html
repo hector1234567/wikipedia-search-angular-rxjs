@@ -1,0 +1,18 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Words</th>
+            <th>Snippet</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let result of list">
+            <td>
+                <a target="_blank" [href]="'https://es.wikipedia.org?curid=' + result.pageid">{{result.title}}</a>
+            </td>
+            <td>{{result.wordcount}}</td>
+            <td [innerHTML]="result.snippet"></td>
+        </tr>
+    </tbody>
+</table>
